@@ -31,15 +31,22 @@ namespace WeatherProvider
         {
             if (e.Key == Key.Enter)
             {
-                var city = await weatherProvider.FindCityNameAsync(cityInputTextBox.Text);
-                if (city != null)
+                try
                 {
-                    var weather = await weatherProvider.GetWeatherInfoAsync(city);
-                    cityNameLabel.Content = "Название города: " + weather.CityName;
-                    temperatureLabel.Content = "Температура: " + weather.Temperature + "°C";
-                    descriptionLabel.Content = "Описание: " + weather.Description;
+                    var city = await weatherProvider.FindCityNameAsync(cityInputTextBox.Text);
+                    if (city != null)
+                    {
+                        var weather = await weatherProvider.GetWeatherInfoAsync(city);
+                        cityNameLabel.Content = "Название города: " + weather.CityName;
+                        temperatureLabel.Content = "Температура: " + weather.Temperature + "°C";
+                        descriptionLabel.Content = "Описание: " + weather.Description;
+                    }
                 }
-                else MessageBox.Show("Название города некорректно");
+                catch (CityNotFoundException exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
+                
 
                 cityInputTextBox.Clear();
             }

@@ -26,9 +26,8 @@ public class OpenWeatherMapApi : IWeatherProvider
             await response.Content.ReadAsStreamAsync(),
             new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
-        return cityApi.Length > 0 
-            ? cityApi[0].Name 
-            : null;
+        if (cityApi.Length > 0) return cityApi[0].Name;
+        else throw new CityNotFoundException();
     }
 
     public async Task<WeatherInfo> GetWeatherInfoAsync(string city)
@@ -38,6 +37,10 @@ public class OpenWeatherMapApi : IWeatherProvider
         var weatherInfoApi = await JsonSerializer.DeserializeAsync<WeatherInfoApi>(
             await response.Content.ReadAsStreamAsync(),
             new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+        if (weatherInfoApi.Name == null 
+            || weatherInfoApi.Main.Temp == null 
+            || weatherInfoApi.Weather == null) throw new CityNotFoundException();
 
         var weatherInfo = new WeatherInfo(
             weatherInfoApi.Name,

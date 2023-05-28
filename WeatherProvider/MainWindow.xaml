@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:WeatherProvider"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="450" MaxWidth="450" MaxHeight="450" MinWidth="445" MinHeight="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid Background="#FFDADADA" RenderTransformOrigin="1,0.5" Margin="-1,0,1,0">
-        <Label x:Name="inputInfoLabel" Content="Город:" HorizontalAlignment="Left" Margin="178,50,0,0" VerticalAlignment="Top" Height="44" Width="88" FontSize="24"/>
-        <TextBox x:Name="cityInputTextBox" HorizontalAlignment="Center" Height="28" Margin="0,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" FontSize="16" UndoLimit="43" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" TextAlignment="Center" KeyDown="cityInputTextBox_EnterKeyDown"/>
-        <Label x:Name="cityNameLabel" Content="" HorizontalAlignment="Left" Margin="120,167,0,0" VerticalAlignment="Top" FontSize="14" Height="30" Width="291" AllowDrop="True"/>
-        <Label x:Name="temperatureLabel" Content="" HorizontalAlignment="Left" Margin="120,205,0,0" VerticalAlignment="Top" FontSize="14" Height="30" Width="291"/>
-        <Label x:Name="descriptionLabel" Content="" HorizontalAlignment="Left" Margin="120,237,0,0" VerticalAlignment="Top" FontSize="14" Height="30" Width="291"/>
+    <Grid Background="#FF0D1117" RenderTransformOrigin="1,0.5" Margin="-1,0,-10,-6">
+        <Label x:Name="inputInfoLabel" Content="Город:" HorizontalAlignment="Left" Margin="178,50,0,0" VerticalAlignment="Top" Height="44" Width="88" FontSize="24" Foreground="#FFF0F6FC"/>
+        <TextBox x:Name="cityInputTextBox" HorizontalAlignment="Center" Height="28" Margin="0,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" FontSize="16" UndoLimit="43" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" TextAlignment="Center" KeyDown="cityInputTextBox_EnterKeyDown" Background="#FF28303C" SelectionBrush="#FF014378" Foreground="#FFF0F6FC"/>
+        <Label x:Name="cityNameLabel" Content="" HorizontalAlignment="Left" Margin="120,167,0,0" VerticalAlignment="Top" FontSize="14" Height="30" Width="291" AllowDrop="True" Foreground="#FFF0F6FC"/>
+        <Label x:Name="temperatureLabel" Content="" HorizontalAlignment="Left" Margin="120,201,0,0" VerticalAlignment="Top" FontSize="14" Height="30" Width="291" Foreground="#FFF0F6FC"/>
+        <Label x:Name="descriptionLabel" Content="" HorizontalAlignment="Left" Margin="120,237,0,0" VerticalAlignment="Top" FontSize="14" Height="30" Width="291" Foreground="#FFF0F6FC"/>
 
     </Grid>
 </Window>
