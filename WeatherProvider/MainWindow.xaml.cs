@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace WeatherProvider
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private static IWeatherProvider weatherProvider = new OpenWeatherMapApi();
@@ -27,8 +24,9 @@ namespace WeatherProvider
             InitializeComponent();
         }
 
-        private async void cityInputTextBox_EnterKeyDown(object sender, KeyEventArgs e)
+        private async void CityInputTextBox_EnterKeyDown(object sender, KeyEventArgs e)
         {
+            exceptionLabel.Content = "";
             if (e.Key == Key.Enter)
             {
                 try
@@ -40,15 +38,19 @@ namespace WeatherProvider
                         cityNameLabel.Content = "Название города: " + weather.CityName;
                         temperatureLabel.Content = "Температура: " + weather.Temperature + "°C";
                         descriptionLabel.Content = "Описание: " + weather.Description;
+                        windLabel.Content = "Скорость ветра: " + weather.WindSpeed + " м/с";
                     }
                 }
                 catch (CityNotFoundException exception)
                 {
-                    MessageBox.Show(exception.Message);
+                    exceptionLabel.Content = exception.Message;
+                    cityNameLabel.Content = temperatureLabel.Content 
+                        = descriptionLabel.Content = windLabel.Content = "";
                 }
-                
-
-                cityInputTextBox.Clear();
+                finally
+                {
+                    cityInputTextBox.Clear();
+                }
             }
         }
     }

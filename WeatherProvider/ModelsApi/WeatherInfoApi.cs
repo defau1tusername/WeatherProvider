@@ -11,5 +11,6 @@ public class WeatherInfoApi
     public string Name { get; set; }
     public WeatherApi[] Weather { get; set; }
     public MainApi Main { get; set; }
+    public WindApi Wind { get; set; }
 }
 

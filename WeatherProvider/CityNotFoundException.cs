@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public class CityNotFoundException : Exception
 {
     public CityNotFoundException() 
-        : base("Название города некорректно") 
+        : base("Ошибка: город не найден") 
     { }
 }
 

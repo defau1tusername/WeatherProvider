@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 
 public class OpenWeatherMapApi : IWeatherProvider
@@ -32,7 +33,7 @@ public class OpenWeatherMapApi : IWeatherProvider
 
     public async Task<WeatherInfo> GetWeatherInfoAsync(string city)
     {
-        var url = @$"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apiKey}&lang=ru";
+        var url = @$"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apiKey}&lang=ru&units=metric";
         var response = await client.GetAsync(url);
         var weatherInfoApi = await JsonSerializer.DeserializeAsync<WeatherInfoApi>(
             await response.Content.ReadAsStreamAsync(),
@@ -45,7 +46,8 @@ public class OpenWeatherMapApi : IWeatherProvider
         var weatherInfo = new WeatherInfo(
             weatherInfoApi.Name,
             weatherInfoApi.Main.Temp,
-            weatherInfoApi.Weather[0].Description);
+            weatherInfoApi.Weather[0].Description,
+            weatherInfoApi.Wind.Speed);
 
         return weatherInfo;
     }
