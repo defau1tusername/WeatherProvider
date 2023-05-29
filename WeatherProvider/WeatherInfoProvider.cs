@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-public class WeatherInfoProvider
+public class WeatherInfoProvider //класс, назначением которого является конвертация полученных API моделей в удобную форму
 {
     private IWeatherClient client;
 

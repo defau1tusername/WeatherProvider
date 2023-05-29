@@ -8,8 +8,8 @@ public class OpenWeatherMapApiClient : IWeatherClient
     private readonly HttpClient client;
     private readonly string apiKey;
     private static JsonSerializerOptions jsonSerializerOptions = 
-        new() { PropertyNameCaseInsensitive = true };
-
+        new() { PropertyNameCaseInsensitive = true }; //поскольку имена свойств должны отвечать принятым правилам написания 
+                                                      //(с большой буквы для public свойств) необходимо задать настройку игнорирования регистра
     public OpenWeatherMapApiClient(OpenWeatherMapApiClientSettings settings)
     {
         client = new HttpClient() { BaseAddress = settings.Url };
