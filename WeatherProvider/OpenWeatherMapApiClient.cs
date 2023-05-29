@@ -37,7 +37,7 @@ public class OpenWeatherMapApiClient : IWeatherClient
             jsonSerializerOptions);
 
         if (weatherInfoApi.Name == null 
-            || weatherInfoApi.Main.Temp == null 
+            || weatherInfoApi.Main == null 
             || weatherInfoApi.Weather == null) throw new CityNotFoundException();
 
         return weatherInfoApi;
