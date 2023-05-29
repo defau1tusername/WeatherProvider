@@ -11,7 +11,7 @@ public class WeatherInfoProvider
 
     public async Task<string> GetCityAsync(string cityInput)
     {
-        var citiesApi = await client.GetCityInfoByInputAsync(cityInput);
+        var citiesApi = await client.GetInfoByCityNameAsync(cityInput);
 
         if (citiesApi.Length > 0) return citiesApi[0].Name;
         else throw new CityNotFoundException();

@@ -16,7 +16,7 @@ public class OpenWeatherMapApiClient : IWeatherClient
         apiKey = settings.ApiKey;
     }
 
-    public async Task<ApiCity[]> GetCityInfoByInputAsync(string cityInput, CancellationToken cancellationToken = default)
+    public async Task<ApiCity[]> GetInfoByCityNameAsync(string cityInput, CancellationToken cancellationToken = default)
     {
         var url = @$"/geo/1.0/direct?q={cityInput}&limit=5&appid={apiKey}";
         var response = await client.GetAsync(url);
