@@ -38,7 +38,7 @@ namespace WeatherProvider
                     }
                 }
                 catch (Exception exception)
-                when (exception is CityNotFoundException || exception is HttpRequestException)
+                    when (exception is CityNotFoundException || exception is HttpRequestException)
                 {
                     exceptionLabel.Content = exception.Message;
                     cityNameLabel.Content = temperatureLabel.Content
