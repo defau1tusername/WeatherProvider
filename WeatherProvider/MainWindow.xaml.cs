@@ -28,14 +28,11 @@ namespace WeatherProvider
                 try
                 {
                     var city = await weatherInfoProvider.GetCityAsync(cityInputTextBox.Text); // Нахождеине города по пользовательскому вводу
-                    if (city != null)
-                    {
-                        var weather = await weatherInfoProvider.GetWeatherInfoAsync(city); // Нахождение погоды на основании найденного города
-                        cityNameLabel.Content = "Название города: " + weather.CityName;
-                        temperatureLabel.Content = "Температура: " + weather.Temperature + "°C";
-                        descriptionLabel.Content = "Описание: " + weather.Description;
-                        windLabel.Content = "Скорость ветра: " + weather.WindSpeed + " м/с";
-                    }
+                    var weather = await weatherInfoProvider.GetWeatherInfoAsync(city); // Нахождение погоды на основании найденного города
+                    cityNameLabel.Content = "Название города: " + weather.CityName;
+                    temperatureLabel.Content = "Температура: " + weather.Temperature + "°C";
+                    descriptionLabel.Content = "Описание: " + weather.Description;
+                    windLabel.Content = "Скорость ветра: " + weather.WindSpeed + " м/с";
                 }
                 catch (Exception exception)
                     when (exception is CityNotFoundException || exception is HttpRequestException)

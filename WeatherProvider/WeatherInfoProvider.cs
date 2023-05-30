@@ -5,7 +5,7 @@
 /// </summary>
 public class WeatherInfoProvider 
 {
-    private IWeatherClient client;
+    private readonly IWeatherClient client;
 
     public WeatherInfoProvider(IWeatherClient client)
     {
@@ -19,8 +19,8 @@ public class WeatherInfoProvider
     {
         var foundCities = await client.GetInfoByCityNameAsync(value);
 
-        if (foundCities.Length > 0) return foundCities[0].Name;
-        else throw new CityNotFoundException();
+        if (foundCities.Length == 0) throw new CityNotFoundException();
+        return foundCities[0].Name;
     }
 
     /// <summary>

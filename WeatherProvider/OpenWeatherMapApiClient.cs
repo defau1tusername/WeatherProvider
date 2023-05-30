@@ -12,6 +12,7 @@ public class OpenWeatherMapApiClient : IWeatherClient
     private readonly string apiKey;
     private static JsonSerializerOptions jsonSerializerOptions = 
         new() { PropertyNameCaseInsensitive = true };
+
     public OpenWeatherMapApiClient(OpenWeatherMapApiClientSettings settings)
     {
         client = new HttpClient() { BaseAddress = settings.Url };
