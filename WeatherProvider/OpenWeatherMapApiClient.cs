@@ -10,8 +10,8 @@ public class OpenWeatherMapApiClient : IWeatherClient
 {
     private static JsonSerializerOptions jsonSerializerOptions =
         new() { PropertyNameCaseInsensitive = true };
-    private readonly HttpClient client;
     private readonly string apiKey;
+    private readonly HttpClient client;
 
     public OpenWeatherMapApiClient(OpenWeatherMapApiClientSettings settings)
     {
