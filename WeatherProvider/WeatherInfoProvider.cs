@@ -1,6 +1,9 @@
 ﻿using System.Threading.Tasks;
 
-public class WeatherInfoProvider //класс, назначением которого является конвертация полученных API моделей в удобную форму
+/// <summary>
+/// Класс <c>WeatherInfoProvider</c>, назначением которого является конвертация полученных API моделей в удобную форму
+/// </summary>
+public class WeatherInfoProvider 
 {
     private IWeatherClient client;
 
@@ -9,14 +12,20 @@ public class WeatherInfoProvider //класс, назначением котор
         this.client = client;
     }
 
-    public async Task<string> GetCityAsync(string cityInput)
+    /// <summary>
+    /// Получение города с наибольшим лексическим совпадением
+    /// </summary>
+    public async Task<string> GetCityAsync(string value)
     {
-        var citiesApi = await client.GetInfoByCityNameAsync(cityInput);
+        var foundCities = await client.GetInfoByCityNameAsync(value);
 
-        if (citiesApi.Length > 0) return citiesApi[0].Name;
+        if (foundCities.Length > 0) return foundCities[0].Name;
         else throw new CityNotFoundException();
     }
 
+    /// <summary>
+    /// Получение информации о погоде
+    /// </summary>
     public async Task<WeatherInfo> GetWeatherInfoAsync(string city)
     {
         var weatherInfoApi = await client.GetWeatherInfoAsync(city);
