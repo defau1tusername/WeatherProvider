@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 /// </summary>
 public class OpenWeatherMapApiClient : IWeatherClient
 {
+    private static JsonSerializerOptions jsonSerializerOptions =
+        new() { PropertyNameCaseInsensitive = true };
     private readonly HttpClient client;
     private readonly string apiKey;
-    private static JsonSerializerOptions jsonSerializerOptions = 
-        new() { PropertyNameCaseInsensitive = true };
 
     public OpenWeatherMapApiClient(OpenWeatherMapApiClientSettings settings)
     {
