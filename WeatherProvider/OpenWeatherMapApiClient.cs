@@ -40,18 +40,17 @@ public class OpenWeatherMapApiClient : IWeatherClient
     {
         var url = @$"/data/2.5/weather?q={city}&appid={apiKey}&lang=ru&units=metric";
         var response = await client.GetAsync(url);
-        if (!response.IsSuccessStatusCode) 
+        if (!response.IsSuccessStatusCode)
             throw new HttpRequestException("Ошибка: некорректный ответ с сервера");
 
         var weatherInfoApi = await JsonSerializer.DeserializeAsync<ApiWeatherInfo>(
             await response.Content.ReadAsStreamAsync(),
             jsonSerializerOptions);
 
-        if (weatherInfoApi.Name == null 
-            || weatherInfoApi.Main == null 
+        if (weatherInfoApi.Name == null
+            || weatherInfoApi.Main == null
             || weatherInfoApi.Weather == null) throw new CityNotFoundException();
 
         return weatherInfoApi;
     }
 }
-

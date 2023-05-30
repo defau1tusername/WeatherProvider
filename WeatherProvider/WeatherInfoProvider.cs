@@ -3,7 +3,7 @@
 /// <summary>
 /// Класс <c>WeatherInfoProvider</c>, назначением которого является конвертация полученных API моделей в удобную форму
 /// </summary>
-public class WeatherInfoProvider 
+public class WeatherInfoProvider
 {
     private readonly IWeatherClient client;
 
@@ -38,4 +38,3 @@ public class WeatherInfoProvider
         return weatherInfo;
     }
 }
-

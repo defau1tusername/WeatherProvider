@@ -5,4 +5,3 @@
     public ApiMain Main { get; set; }
     public ApiWind Wind { get; set; }
 }
-

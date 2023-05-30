@@ -2,8 +2,8 @@
 
 public class CityNotFoundException : Exception
 {
-    public CityNotFoundException() 
-        : base("Ошибка: город не найден") 
+    public CityNotFoundException()
+        : base("Ошибка: город не найден")
     { }
 }
 

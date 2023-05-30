@@ -13,7 +13,8 @@ namespace WeatherProvider
         {
             InitializeComponent();
             // Инициализация настроек через конфигурационный файл appsettings.json
-            var settings = new OpenWeatherMapApiClientSettings() { 
+            var settings = new OpenWeatherMapApiClientSettings()
+            {
                 Url = new Uri(App.Config["Url"]),
                 ApiKey = App.Config["ApiKey"]
             };

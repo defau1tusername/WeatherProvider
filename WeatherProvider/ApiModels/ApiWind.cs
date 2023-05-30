@@ -2,4 +2,3 @@
 {
     public double Speed { get; set; }
 }
-

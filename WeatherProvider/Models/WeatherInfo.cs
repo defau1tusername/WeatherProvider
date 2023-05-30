@@ -13,4 +13,3 @@
         WindSpeed = windSpeed;
     }
 }
-
