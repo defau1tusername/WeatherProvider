@@ -21,9 +21,9 @@ public class OpenWeatherMapApiClient : IWeatherClient
     /// <summary>
     /// Отправка запроса на получение городов с наибольшим лексическим совпадением
     /// </summary>
-    public async Task<ApiCity[]> GetInfoByCityNameAsync(string cityInput, CancellationToken cancellationToken)
+    public async Task<ApiCity[]> GetInfoByCityNameAsync(string value, CancellationToken cancellationToken)
     {
-        var url = @$"/geo/1.0/direct?q={cityInput}&limit=5&appid={apiKey}";
+        var url = @$"/geo/1.0/direct?q={value}&limit=5&appid={apiKey}";
         var response = await client.GetAsync(url);
         var cityApi = await JsonSerializer.DeserializeAsync<ApiCity[]>(
             await response.Content.ReadAsStreamAsync(),
