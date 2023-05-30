@@ -37,15 +37,10 @@ namespace WeatherProvider
                         windLabel.Content = "Скорость ветра: " + weather.WindSpeed + " м/с";
                     }
                 }
-                catch (CityNotFoundException exception)
+                catch (Exception exception)
+                when (exception is CityNotFoundException || exception is HttpRequestException)
                 {
                     exceptionLabel.Content = exception.Message;
-                    cityNameLabel.Content = temperatureLabel.Content
-                        = descriptionLabel.Content = windLabel.Content = "";
-                }
-                catch (HttpRequestException exception)
-                {
-                    exceptionLabel.Content = "Ошибка: некорректный ответ с сервера";
                     cityNameLabel.Content = temperatureLabel.Content
                         = descriptionLabel.Content = windLabel.Content = "";
                 }

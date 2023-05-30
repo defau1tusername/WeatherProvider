@@ -39,7 +39,9 @@ public class OpenWeatherMapApiClient : IWeatherClient
     {
         var url = @$"/data/2.5/weather?q={city}&appid={apiKey}&lang=ru&units=metric";
         var response = await client.GetAsync(url);
-        response.EnsureSuccessStatusCode();
+        if (!response.IsSuccessStatusCode) 
+            throw new HttpRequestException("Ошибка: некорректный ответ с сервера");
+
         var weatherInfoApi = await JsonSerializer.DeserializeAsync<ApiWeatherInfo>(
             await response.Content.ReadAsStreamAsync(),
             jsonSerializerOptions);

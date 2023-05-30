@@ -13,7 +13,7 @@
         <Label x:Name="temperatureLabel" Content="" HorizontalAlignment="Left" Margin="356,48,0,0" VerticalAlignment="Top" FontSize="14" Height="30" Width="291" Foreground="#FFF0F6FC"/>
         <Label x:Name="descriptionLabel" Content="" HorizontalAlignment="Left" Margin="356,84,0,0" VerticalAlignment="Top" FontSize="14" Height="30" Width="291" Foreground="#FFF0F6FC"/>
         <Label x:Name="windLabel" Content="" HorizontalAlignment="Left" Margin="356,119,0,0" VerticalAlignment="Top" FontSize="14" Height="30" Width="291" Foreground="#FFF0F6FC"/>
-        <Label x:Name="exceptionLabel" Content="" HorizontalAlignment="Left" Height="25" Margin="96,102,0,0" VerticalAlignment="Top" Width="160" Foreground="#FFFF5D5D" HorizontalContentAlignment="Center" FontSize="11"/>
+        <Label x:Name="exceptionLabel" Content="" HorizontalAlignment="Left" Height="25" Margin="66,99,0,0" VerticalAlignment="Top" Width="220" Foreground="#FFFF5D5D" HorizontalContentAlignment="Center" FontSize="11"/>
 
     </Grid>
 </Window>
